@@ -1,0 +1,465 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Portafolio1</title>
+    <!-- JQUERY -->
+    <script src="lib/jQuery3.js"></script>
+
+    <!-- BOXICONS -->
+    <link rel="stylesheet" href="lib/boxicons.min.css" />
+
+    <!-- SWIPER BLUNDE -->
+    <script src="lib/swiper-bundle.min.js"></script>
+    <link rel="stylesheet" href="lib/swiper-bundle.min.css" />
+
+    <!-- Sprectrun -->
+    <link rel="stylesheet" href="lib/spectrum.css" />
+    <script src="lib/spectrum.js"></script>
+
+    <!-- MIX -->
+    <script src="lib/mixitup.min.js"></script>
+
+    <script src="https://cdn.jsdelivr.net/npm/sweetalert2@11"></script>
+    <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+    ></script>
+
+    <!-- ESTILOS PAGINA -->
+    <link rel="stylesheet" href="css/style.css" />
+  </head>
+  <body>
+    <header>
+      <div class="logo">
+        <span style="color: var(--primary-color)">LuisDoc</span>s
+      </div>
+      <ul class="navlist">
+        <li>
+          <a href="#home" style="--i: 1">
+            <i class="bx bxs-home-heart"></i> Inicio</a
+          >
+        </li>
+        <li>
+          <a href="#about" style="--i: 2"
+            ><i class="bx bx-male"></i> Sobre mi</a
+          >
+        </li>
+        <li>
+          <a href="#services" style="--i: 3"
+            ><i class="bx bxs-collection"></i> Certificaciones</a
+          >
+        </li>
+        <li>
+          <a href="#skills" style="--i: 4"
+            ><i class="bx bx-sort-up"></i> Competencias</a
+          >
+        </li>
+        <li>
+          <a href="#portafolio" style="--i: 5"
+            ><i class="bx bxs-book-bookmark"></i> Portafolio</a
+          >
+        </li>
+        <li>
+          <a href="#contact" style="--i: 6"
+            ><i class="bx bxs-contact"></i> Contactame</a
+          >
+        </li>
+        <li>
+          <div class="toggle-container">
+            <div class="toggle-switch" onclick="toggleDarkMode(this)">
+              <div class="toggle-icons">
+                <span><i class="bx bxs-sun bx-spin"></i></span>
+                <span><i class="bx bxs-moon bx-tada"></i></span>
+              </div>
+              <div class="toggle-handle"></div>
+            </div>
+          </div>
+        </li>
+      </ul>
+      <div id="menu-icon" class="bx bx-menu"></div>
+    </header>
+    <!-- section -->
+    <section class="home sec" id="home">
+      <div class="home-content scroll-scale">
+        <h1><span id="txtSaludo">Hola</span>, soy Luis</h1>
+        <div class="change-text">
+          <h3>Yo Soy</h3>
+          <h3>
+            <span class="word">Programador</span>
+            <span class="word">Diseñador</span>
+            <span class="word">Analista</span>
+            <span class="word">Ui</span>
+          </h3>
+        </div>
+        <p>
+          Como programador, soy una persona responsable, autodidacta y
+          disciplinada, que busca constantemente innovar y aportar mis
+          conocimientos con el fin de mejorar la experiencia y comodidad del
+          usuario. Estoy comprometido a utilizar mis habilidades para crear
+          soluciones que satisfagan las necesidades del usuario de manera
+          eficiente y efectiva.
+        </p>
+        <div class="info box">
+          <div class="email-info">
+            <h5><i class="bx bxs-envelope bx-tada"></i> Email</h5>
+            <span><a href="#contact">Enviar correo</a> </span>
+          </div>
+          <div class="email-info">
+            <h5><i class="bx bxl-whatsapp bx-tada"></i> Whatsapp</h5>
+            <span><a href="#" id="btnEnviarMensaje"> Enviar mensaje</a></span>
+          </div>
+
+          <div class="behance-info">
+            <h5><i class="bx bxl-github bx-tada"></i> Github</h5>
+            <span
+              ><a href="https://github.com/Luis9092" target="_blank">
+                Luis9092</a
+              ></span
+            >
+          </div>
+        </div>
+        <div class="btn-box">
+          <a href="/js/curriLuis.pdf" download="CurriculumLuis.pdf" class="btn"
+            >Descargar cv</a
+          >
+          <a href="#" class="btn">Contratar ahora</a>
+          <a id="btnColor" href="#" class="btn"
+            ><i class="bx bxs-palette bx-spin"></i> Color</a
+          >
+        </div>
+      </div>
+
+      <div class="home-image scroll-scale">
+        <div class="img-box">
+          <img src="img/luiscv1.png" alt="" />
+        </div>
+        <div class="liquid-shape">
+          <svg
+            viewBox="0 0 500 500"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            width="100%"
+            id="blobSvg"
+          >
+            <path fill="var(--primary-color)">
+              <animate
+                attributeName="d"
+                dur="10000ms"
+                repeatCount="indefinite"
+                values="M394.5,349Q364,448,257.5,434.5Q151,421,86,335.5Q21,250,76,146.5Q131,43,250,43Q369,43,397,146.5Q425,250,394.5,349Z;
+                M388.5,338Q352,426,240,444Q128,462,68,356Q8,250,87.5,178.5Q167,107,246.5,112.5Q326,118,375.5,184Q425,250,388.5,338Z;
+                M379,329Q341,408,257,395.5Q173,383,114.5,316.5Q56,250,100,158Q144,66,255,57.5Q366,49,391.5,149.5Q417,250,379,329Z;
+                M428,356Q373,462,263,440.5Q153,419,111.5,334.5Q70,250,110,163.5Q150,77,242,91Q334,105,408.5,177.5Q483,250,428,356Z;
+                M427,344Q358,438,252.5,433Q147,428,95,339Q43,250,105,177.5Q167,105,266.5,76.5Q366,48,431,149Q496,250,427,344Z;
+                M394.5,349Q364,448,257.5,434.5Q151,421,86,335.5Q21,250,76,146.5Q131,43,250,43Q369,43,397,146.5Q425,250,394.5,349Z;"
+              ></animate>
+            </path>
+          </svg>
+        </div>
+
+        <div class="liquid-shape">
+          <svg
+            viewBox="0 0 500 500"
+            xmlns="http://www.w3.org/2000/svg"
+            xmlns:xlink="http://www.w3.org/1999/xlink"
+            width="100%"
+            id="blobSvg"
+          >
+            <path fill="var(--primary-color)">
+              <animate
+                attributeName="d"
+                dur="10000ms"
+                repeatCount="indefinite"
+                values="M394.5,349Q364,448,257.5,434.5Q151,421,86,335.5Q21,250,76,146.5Q131,43,250,43Q369,43,397,146.5Q425,250,394.5,349Z;
+                M388.5,338Q352,426,240,444Q128,462,68,356Q8,250,87.5,178.5Q167,107,246.5,112.5Q326,118,375.5,184Q425,250,388.5,338Z;
+                M379,329Q341,408,257,395.5Q173,383,114.5,316.5Q56,250,100,158Q144,66,255,57.5Q366,49,391.5,149.5Q417,250,379,329Z;
+                M428,356Q373,462,263,440.5Q153,419,111.5,334.5Q70,250,110,163.5Q150,77,242,91Q334,105,408.5,177.5Q483,250,428,356Z;
+                M427,344Q358,438,252.5,433Q147,428,95,339Q43,250,105,177.5Q167,105,266.5,76.5Q366,48,431,149Q496,250,427,344Z;
+                M394.5,349Q364,448,257.5,434.5Q151,421,86,335.5Q21,250,76,146.5Q131,43,250,43Q369,43,397,146.5Q425,250,394.5,349Z;"
+              ></animate>
+            </path>
+          </svg>
+        </div>
+      </div>
+    </section>
+
+    <!-- about section -->
+
+    <section class="about sec" id="about">
+      <div class="img-about scroll-scale">
+        <img src="img/luiscv2hd.png" alt="" />
+        <div class="info-about1">
+          <span>3+</span>
+          <p>Programando</p>
+        </div>
+        <div class="info-about2">
+          <span>20+</span>
+          <p>Proyectos completados</p>
+        </div>
+
+        <div class="info-about3">
+          <span>49+</span>
+          <p>Cursos Universitarios</p>
+        </div>
+      </div>
+
+      <div class="about-content">
+        <div class="main-text scroll-scale">
+          <span>Sobre Mi</span>
+          <h3 class="title"><span>Nivel Academico</span></h3>
+        </div>
+        <p>
+          Inicié mis estudios académicos en la Escuela Luis Mena de Antigua
+          Guatemala, donde adquirí las bases fundamentales de mi educación.
+          Posteriormente, continué mi formación en institutos municipales,
+          destacándome por obtener calificaciones sobresalientes que reflejaban
+          mi dedicación y compromiso con mis estudios. <br /><br />
+
+          Hasta la fecha, me encuentro cursando la carrera de Ingeniería en
+          Sistemas y Ciencias de la Computación en la Universidad Mariano Gálvez
+          de Guatemala, donde he podido desarrollar mis habilidades en el campo
+          de la tecnología y la informática. Actualmente, me encuentro en el
+          noveno semestre de la carrera, emocionado por seguir aprendiendo y
+          preparándome para enfrentar los desafíos que el mundo laboral tiene
+          para ofrecer en esta apasionante área.
+        </p>
+        <br />
+        <div class="btn-box">
+          <a href="/js/curriLuis.pdf" download="CurriculumLuis.pdf" class="btn"
+            >Descargar Cv</a
+          >
+        </div>
+      </div>
+    </section>
+
+    <!-- servives section -->
+
+    <section class="services sec" id="services">
+      <div class="main-text scroll-scale">
+        <span>Mas sobre mi</span>
+        <h2 class="title"><span> Certificaciones</span></h2>
+      </div>
+      <div class="section-services scroll-bottom">
+        <div class="swiper">
+          <div class="card-slider">
+            <div id="Pintando1" class="swiper-wrapper"></div>
+
+            <div class="swiper-button-next"></div>
+            <div class="swiper-button-prev"></div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- SECTION SKILLSS -->
+
+    <section class="skills sec" id="skills">
+      <canvas id="systemsCanvas"></canvas>
+
+      <div class="main-text scroll-scale">
+        <span>Desarrollador</span>
+        <h2 class="title"><span>Mis habilidades son</span></h2>
+      </div>
+
+      <div class="skill-main">
+        <div class="skill-left scroll-scale">
+          <h3>Competencias</h3>
+          <div class="skill-bar">
+            <div class="info">
+              <p>HTML</p>
+              <p>80%</p>
+            </div>
+            <div class="bar">
+              <span class="html"></span>
+            </div>
+          </div>
+
+          <div class="skill-bar">
+            <div class="info">
+              <p>CSS</p>
+              <p>50%</p>
+            </div>
+            <div class="bar">
+              <span class="css"></span>
+            </div>
+          </div>
+
+          <div class="skill-bar">
+            <div class="info">
+              <p>PYTHON</p>
+              <p>30%</p>
+            </div>
+            <div class="bar">
+              <span class="lenguajes"></span>
+            </div>
+          </div>
+          <div class="skill-bar">
+            <div class="info">
+              <p>JAVA</p>
+              <p>30%</p>
+            </div>
+            <div class="bar">
+              <span class="lenguajes"></span>
+            </div>
+          </div>
+          <div class="skill-bar">
+            <div class="info">
+              <p>GITHUB</p>
+              <p>50%</p>
+            </div>
+            <div class="bar">
+              <span class="css"></span>
+            </div>
+          </div>
+
+          <div class="skill-bar">
+            <div class="info">
+              <p>JAVASCRIPT</p>
+              <p>20%</p>
+            </div>
+            <div class="bar">
+              <span class="Javascript"></span>
+            </div>
+          </div>
+        </div>
+        <div class="skill-right scroll-scale">
+          <h3>Habilidades</h3>
+          <div class="professional">
+            <div class="box">
+              <div class="circle" data-dots="50" data-percent="90"></div>
+              <div class="text">
+                <big>90%</big>
+                <small>Autodisciplina</small>
+              </div>
+            </div>
+
+            <div class="box">
+              <div class="circle" data-dots="50" data-percent="70"></div>
+              <div class="text">
+                <big>70%</big>
+                <small>Creatividad</small>
+              </div>
+            </div>
+
+            <div class="box">
+              <div class="circle" data-dots="50" data-percent="60"></div>
+              <div class="text">
+                <big>60%</big>
+                <small>Diseño</small>
+              </div>
+            </div>
+
+            <div class="box">
+              <div class="circle" data-dots="50" data-percent="30"></div>
+              <div class="text">
+                <big>30%</big>
+                <small>Trabajo en equipo</small>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+    <div class="window-modal">
+      <dialog id="dialogImage">
+        <div class="containerdialog">
+          <div class="cerrardialog"><i class="bx bxs-x-circle"></i></div>
+          <div class="boximage" id="boximage"></div>
+        </div>
+      </dialog>
+    </div>
+
+    <!-- section portafolios -->
+
+    <section class="portafolio sec" id="portafolio">
+      <div class="main-text scroll-scale">
+        <span>Sobre mi trabajo</span>
+        <h2 class="title"><span>Proyectos realizados</span></h2>
+      </div>
+
+      <div class="container">
+        <div class="fillter-buttons scroll-scale">
+          <button class="button" data-filter="all">Todos</button>
+          <button class="button" data-filter=".product">Productos</button>
+          <button class="button" data-filter=".inter">Interesantes</button>
+          <button class="button" data-filter=".web">Aplicaciones web</button>
+        </div>
+        <div id="verJobs" class="portafolio-gallery scroll-bottom">
+         
+    
+     
+     
+         
+        </div>
+      </div>
+    </section>
+
+    <!-- CONTACT SECTION -->
+
+    <section class="contact sec" id="contact">
+      <div class="main-text scroll-scale">
+        <span>Contacto</span>
+        <h2 class="title"><span>Enviar Correo</span></h2>
+      </div>
+      <form action="#" class="scroll-bottom">
+        <div class="inputgroup">
+          <label for="" id="nombrePersona"> Nombres</label>
+
+          <input
+            type="text"
+            placeholder="Nombre"
+            name="nombrePersona"
+            id="nombrePersona"
+            required
+          />
+
+        </div>
+        <div class="inputgroup">
+          <label for="" id="labelCorreo">Correo </label>
+          <input
+            type="text"
+            placeholder="Correo electronico"
+            name="correoPersona"
+            id="correoPersona"
+            required
+          />
+        </div>
+        <div class="inputgroup">
+          <label for=""  id="labelMensaje" >Mensaje</label>
+          <textarea
+            name="mensajePersona"
+            id="mensajePersona"
+            cols="30"
+            rows="10"
+            placeholder="Comentario"
+            required
+          ></textarea>
+        </div>
+
+        <div class="btn-box formBtn">
+          <button type="button" class="btn" id="btnEnviarcorreo">
+            Enviar mensaje
+          </button>
+        </div>
+      </form>
+    </section>
+
+    <!-- footer -->
+    <footer class="sec">
+      <p>Derechos reservados broo &copy; 2024</p>
+      <a class="scroll-scale" href="#home"
+        ><i class="bx bx-up-arrow-alt"></i
+      ></a>
+    </footer>
+
+    <script src="js/script.js"></script>
+    <script src="js/animacionCanvas.js"></script>
+
+    <!-- <script
+      type="text/javascript"
+      src="https://cdn.jsdelivr.net/npm/@emailjs/browser@4/dist/email.min.js"
+    ></script> -->
+  </body>
+</html>
