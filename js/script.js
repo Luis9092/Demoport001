@@ -153,11 +153,11 @@ function obtenerHoraActual() {
 function SaludoUsuario() {
     let hora = obtenerHoraActual();
     let cadena = "";
-
+    console.log(hora);
     if (hora < 12) {
         cadena = "Buenos Dias!!";
     }
-    if (hora > 12 && hora <= 18) {
+    if (hora >= 12 && hora <= 18) {
         cadena = "Buenas Tardes!!";
     }
 
@@ -244,30 +244,40 @@ function pintadoCursos() {
        <button id="btnTarget" value="${element.id}" class="btncuatro">Ver</button>
        </div>
      </div>
+     
    </div>`
     });
     document.querySelector("#Pintando1").innerHTML = cadena;
 }
 
-{/* <div class="btn-box btncard service-btn"> */}
+{/* <div class="btn-box btncard service-btn"> */ }
 
 
 
 // SLIDER VIEWCARDS
- 
+
 function swiperCargando() {
     let swiper = new Swiper(".card-slider", {
-        spaceBetween: 20,  
-        loop: true,  
-        centeredSlides: true, 
+        spaceBetween: 20,
+        slidesPerView: 4,
+        loop: true,
+        pagination: true,
+        centeredSlides: false,
         autoplay: {
             delay: 4000,
-            disableOnInteraction: false,  
+            disableOnInteraction: false,
         },
+        pagination: {
+            el: ".swiper-pagination",
+            clickable: true,
+        },
+
+        keyboard: true,
         navigation: {
-            nextEl: ".swiper-button-next", 
-            prevEl: ".swiper-button-prev", 
+            nextEl: ".swiper-button-next",
+            prevEl: ".swiper-button-prev",
         },
+
         breakpoints: {
             0: {
                 slidesPerView: 1, // 1 slide en pantallas pequeñas
@@ -285,6 +295,7 @@ function swiperCargando() {
                 slidesPerView: 5, // 5 slides en pantallas extra grandes
             },
         },
+
     });
 }
 
@@ -321,11 +332,39 @@ document.querySelector(".cerrardialog").addEventListener("click", (e) => {
 })
 
 
-function toggleDarkMode(element) {
-    element.classList.toggle('active');
-    document.body.classList.toggle('dark');
+// function toggleDarkMode(element) {
+//     element.classList.toggle('active');
+//     console.log(element);
+//     document.body.classList.toggle('dark');
 
+// }
+// onclick="toggleDarkMode(this)"
+
+const body = document.body;
+
+const modeToggle = body.querySelector("#toggle-switch");
+
+let getMode = localStorage.getItem("mode");
+if (getMode && getMode === "dark") {
+    body.classList.toggle("dark");
 }
+
+
+modeToggle.addEventListener("click", (e) => {
+    let element = e.target; // 'element' se refiere al objetivo del evento
+    let values = modeToggle.classList.toggle("active"); // Cambié 'e' por 'element' para toggle
+
+    console.log(values);
+    body.classList.toggle("dark");
+    if (body.classList.contains("dark")) {
+        localStorage.setItem("mode", "dark");
+    } else {
+        localStorage.setItem("mode", "light");
+    }
+});
+
+
+
 
 
 // luisfer123
@@ -348,7 +387,7 @@ function toggleDarkMode(element) {
 
 // COLORES
 
-let colorChange = "#e80049";
+let colorChange = "#00f0e6";
 // spectrum patronus
 $("#btnColor").spectrum({
     color: "#f00",
@@ -400,7 +439,7 @@ const audio = new Audio('js/reproducir.mpeg');
 
 // INICIOOO
 window.onload = function () {
-    inicioAlerta(); // Asegúrate de que esta función esté definida
+    // inicioAlerta(); 
     SaludoUsuario();
     pintadoCursos();
     swiperCargando();
@@ -578,7 +617,7 @@ async function mostrardataJson() {
     if (data.length != 0) {
         let datos = data.jobs;
         datos.forEach(element => {
-            
+
             pintarUno += `
         <div class="second port-box web">
             <img

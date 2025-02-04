@@ -68,7 +68,7 @@
         </li>
         <li>
           <div class="toggle-container">
-            <div class="toggle-switch" onclick="toggleDarkMode(this)">
+            <div id="toggle-switch" class="toggle-switch">
               <div class="toggle-icons">
                 <span><i class="bx bxs-sun bx-spin"></i></span>
                 <span><i class="bx bxs-moon bx-tada"></i></span>
@@ -109,6 +109,11 @@
           <div class="email-info">
             <h5><i class="bx bxl-whatsapp bx-tada"></i> Whatsapp</h5>
             <span><a href="#" id="btnEnviarMensaje"> Enviar mensaje</a></span>
+          </div>
+
+          <div class="email-info">
+            <h5><i class="bx bxl-linkedin-square bx-tada"></i> Linkedin</h5>
+            <span><a href="#" id="btnEnviarMensaje">Ver Perfil</a></span>
           </div>
 
           <div class="behance-info">
@@ -242,13 +247,12 @@
         <h2 class="title"><span> Certificaciones</span></h2>
       </div>
       <div class="section-services scroll-bottom">
-        <div class="swiper">
-          <div class="card-slider">
-            <div id="Pintando1" class="swiper-wrapper"></div>
+        <div class="swiper card-slider">
+          <div id="Pintando1" class="swiper-wrapper"></div>
 
-            <div class="swiper-button-next"></div>
-            <div class="swiper-button-prev"></div>
-          </div>
+          <div class="swiper-button-next"></div>
+          <div class="swiper-button-prev"></div>
+          <div class="swiper-pagination"></div>
         </div>
       </div>
     </section>
@@ -386,13 +390,7 @@
           <button class="button" data-filter=".inter">Interesantes</button>
           <button class="button" data-filter=".web">Aplicaciones web</button>
         </div>
-        <div id="verJobs" class="portafolio-gallery scroll-bottom">
-         
-    
-     
-     
-         
-        </div>
+        <div id="verJobs" class="portafolio-gallery scroll-bottom"></div>
       </div>
     </section>
 
@@ -414,7 +412,6 @@
             id="nombrePersona"
             required
           />
-
         </div>
         <div class="inputgroup">
           <label for="" id="labelCorreo">Correo </label>
@@ -427,7 +424,7 @@
           />
         </div>
         <div class="inputgroup">
-          <label for=""  id="labelMensaje" >Mensaje</label>
+          <label for="" id="labelMensaje">Mensaje</label>
           <textarea
             name="mensajePersona"
             id="mensajePersona"
