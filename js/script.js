@@ -387,7 +387,7 @@ modeToggle.addEventListener("click", (e) => {
 
 // COLORES
 
-let colorChange = "#00f0e6";
+let colorChange = "#20dd4c";
 // spectrum patronus
 $("#btnColor").spectrum({
     color: "#f00",
