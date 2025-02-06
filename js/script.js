@@ -121,7 +121,6 @@ window.onscroll = () => {
 }
 
 // PARALLAX OBSERVER
-
 const observer = new IntersectionObserver((entries) => {
     entries.forEach((entry) => {
         if (entry.isIntersecting) {
@@ -164,8 +163,6 @@ function SaludoUsuario() {
     if (hora > 18 && hora < 24) {
         cadena = "Buenas Noches!!"
     }
-
-
 
     document.querySelector("#txtSaludo").innerHTML = cadena;
 }
@@ -259,7 +256,6 @@ function pintadoCursos() {
 function swiperCargando() {
     let swiper = new Swiper(".card-slider", {
         spaceBetween: 20,
-        slidesPerView: 4,
         loop: true,
         pagination: true,
         centeredSlides: false,
@@ -280,7 +276,7 @@ function swiperCargando() {
 
         breakpoints: {
             0: {
-                slidesPerView: 1, // 1 slide en pantallas pequeñas
+                slidesPerView: 2,
             },
             480: {
                 slidesPerView: 2, // 2 slides en pantallas pequeñas
@@ -332,33 +328,25 @@ document.querySelector(".cerrardialog").addEventListener("click", (e) => {
 })
 
 
-// function toggleDarkMode(element) {
-//     element.classList.toggle('active');
-//     console.log(element);
-//     document.body.classList.toggle('dark');
-
-// }
-// onclick="toggleDarkMode(this)"
-
 const body = document.body;
 
 const modeToggle = body.querySelector("#toggle-switch");
 
 let getMode = localStorage.getItem("mode");
 if (getMode && getMode === "dark") {
-    body.classList.toggle("dark");
+    console.log(getMode);
+    body.setAttribute("data-theme", "dark");
 }
 
 
 modeToggle.addEventListener("click", (e) => {
-    let element = e.target; // 'element' se refiere al objetivo del evento
-    let values = modeToggle.classList.toggle("active"); // Cambié 'e' por 'element' para toggle
+    modeToggle.classList.toggle("active"); // Cambié 'e' por 'element' para toggle
 
-    console.log(values);
-    body.classList.toggle("dark");
-    if (body.classList.contains("dark")) {
+    if (body.getAttribute("data-theme") === "dark") {
+        body.removeAttribute("data-theme");
         localStorage.setItem("mode", "dark");
     } else {
+        body.setAttribute("data-theme", "dark");
         localStorage.setItem("mode", "light");
     }
 });
@@ -373,19 +361,6 @@ modeToggle.addEventListener("click", (e) => {
 
 
 
-// $card.addEventListener('mouseenter', () => {
-//   bounds = $card.getBoundingClientRect();
-//   document.addEventListener('mousemove', rotateToMouse);
-// });
-
-// $card.addEventListener('mouseleave', () => {
-//     document.removeEventListener('mousemove', rotateToMouse);
-//     $card.style.transform = '';
-//     $card.style.background = '';
-// });
-
-
-// COLORES
 
 let colorChange = "#20dd4c";
 // spectrum patronus
@@ -429,13 +404,7 @@ if (btnEnviarMensaje) {
 
 const audio = new Audio('js/reproducir.mpeg');
 
-// window.onload = function (e) {
-//     SaludoUsuario();
-//     pintadoCursos();
-//     swiperCargando();
-//     AmpliarImagen();
 
-// }
 
 // INICIOOO
 window.onload = function () {
@@ -444,16 +413,17 @@ window.onload = function () {
     pintadoCursos();
     swiperCargando();
     AmpliarImagen();
+    hackerBinari();
     // Esperar a que el usuario haga clic para reproducir el audio
-    document.addEventListener('click', function () {
-        if (audio && typeof audio.play === 'function') {
-            audio.play().catch(function (error) {
-                console.error('Error al intentar reproducir el audio:', error);
-            });
-        } else {
-            console.error('El objeto audio no está definido o no tiene el método play.');
-        }
-    }, { once: true }); // Elimina el evento después del primer clic
+    // document.addEventListener('click', function () {
+    //     if (audio && typeof audio.play === 'function') {
+    //         audio.play().catch(function (error) {
+    //             console.error('Error al intentar reproducir el audio:', error);
+    //         });
+    //     } else {
+    //         console.error('El objeto audio no está definido o no tiene el método play.');
+    //     }
+    // }, { once: true });  
 };
 
 
@@ -665,4 +635,101 @@ async function leerJson() {
 }
 
 
+
+function hackerBinari() {
+    initMatrix('matrix');
+
+}
+
+function initMatrix(containerId, options = {}) {
+    const {
+        columnWidth = 46,
+        animationSpeed = 1000,
+        changeCharProbability = 0.1,
+        minLength = 15,
+        maxLength = 30,
+        minSpeed = 0.2,
+        maxSpeed = 0.5
+    } = options;
+
+    const container = document.getElementById(containerId);
+    let columns = [];
+
+    // Función para crear o actualizar las columnas
+    function createOrUpdateColumns() {
+        const width = container.offsetWidth;
+        const newColumnsCount = Math.floor(width / columnWidth);
+
+        // Si el número de columnas no ha cambiado, no hacemos nada
+        if (newColumnsCount === columns.length) return;
+
+        // Limpiamos el contenedor
+        container.innerHTML = '';
+
+        // Creamos las nuevas columnas
+        columns = [];
+        for (let i = 0; i < newColumnsCount; i++) {
+            const column = document.createElement('div');
+            column.className = 'matrix';
+            column.style.width = columnWidth + 'px';
+            column.style.left = (i * columnWidth) + 'px';
+            column.style.position = 'absolute';
+            container.appendChild(column);
+
+            let delay = Math.random() * 2;
+            animateColumn(column, delay, {
+                animationSpeed,
+                changeCharProbability,
+                minLength,
+                maxLength,
+                minSpeed,
+                maxSpeed
+            });
+
+            columns.push(column);
+        }
+    }
+
+    // Crear columnas iniciales
+    createOrUpdateColumns();
+
+    // Escuchar cambios en el tamaño de la ventana
+    window.addEventListener('resize', createOrUpdateColumns);
+}
+
+function animateColumn(column, delay, options) {
+    const {
+        animationSpeed,
+        changeCharProbability,
+        minLength,
+        maxLength,
+        minSpeed,
+        maxSpeed
+    } = options;
+
+    let length = Math.floor(Math.random() * (maxLength - minLength + 1)) + minLength;
+    let chars = [];
+    let speeds = [];
+
+    for (let i = 0; i < length; i++) {
+        chars.push(Math.random() < 0.5 ? '0' : '1');
+        speeds.push(Math.random() * (maxSpeed - minSpeed) + minSpeed);
+    }
+
+    setTimeout(() => {
+        setInterval(() => {
+            let html = '';
+            for (let i = 0; i < length; i++) {
+                const char = chars[i];
+                const opacity = Math.max(0, 1 - (i / length));
+                html = `<span style="opacity: ${opacity}; color: ${colorChange};">${char}</span><br>` + html;
+
+                if (Math.random() < changeCharProbability) {
+                    chars[i] = Math.random() < 0.5 ? '0' : '1';
+                }
+            }
+            column.innerHTML = html;
+        }, animationSpeed);
+    }, delay * 1000);
+}
 

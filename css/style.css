@@ -26,7 +26,7 @@
   --shadow-general: 0 -1px 4px var(var(--light-color));
 }
 
-.dark {
+[data-theme="dark"] {
   --container-color: rgb(42, 42, 42);
   --text-color: #ffffff;
   --gray-color: #fffafa;
@@ -263,8 +263,9 @@ section {
   font-size: 1.2rem;
   border-radius: 50%;
   color: var(--primary-color);
-  font-weight: 400;
+  font-weight: 400; 
   border: 0.5px var(--primary-color) solid;
+  box-shadow: 0 0px 6px var(--primary-color);
 }
 
 
@@ -412,6 +413,11 @@ section {
 .liquid-shape:nth-child(2) {
   filter: blur(50px);
 }
+
+
+
+
+
 
 /* about section csss */
 
@@ -825,18 +831,16 @@ section {
 
 .port-box {
   position: relative;
-  border-radius: 15px;
+  border-radius: 12px;
   overflow: hidden;
-  background: #292e33;
   display: flex;
   grid-template-rows: 1fr auto;
   align-items: center;
-  transition: border-color 1s ease;
-  border: 2px solid var(--container-color);
+  border: 1px solid var(--text-color);
 }
 
 .port-box:hover {
-  border-color: var(--primary-color);
+  border: 2px solid var(--primary-color);
   box-shadow: var(--neon-box-shadow);
 }
 
@@ -844,7 +848,7 @@ section {
 
 .imagedos {
   width: 100%;
-  height: 26rem;
+  height: 28rem;
   object-fit: cover;
 }
 
@@ -861,6 +865,8 @@ section {
   );
   border-radius: 30px;
   transform: skew(19deg, -9deg);
+  border: 1px solid var(--text-color);
+
 }
 
 .text_container:hover {
@@ -957,15 +963,38 @@ section {
 
 /* CONTACTOS FORMULARIO */
 .contact {
-  background: var(--secon-bg-color);
+  background-color: var(--secon-bg-color);
   width: 100%;
+  height: 100%;
+}
+
+.contact  #matrix{
+  position: relative;
+  width: 100%;
+
+}
+
+
+.matrix {
+  font-family: monospace;
+  font-size: 1.2em;
+  width: 100%;
+  line-height: 1.1em;
+}
+
+
+
+@keyframes fade {
+  0% { opacity: 0; }
+  30% { opacity: 1; }
+  70% { opacity: 1; }
+  100% { opacity: 0; }
 }
 
 .contact form {
   text-align: center;
   max-width: 50rem;
-  margin: 1rem auto;
-  margin-bottom: 3rem;
+  margin: 0.2rem auto;
 }
 
 .contact label {
@@ -976,11 +1005,15 @@ section {
 .contact .inputgroup {
   display: flex;
   flex-direction: column;
-  margin: 4px;
-  gap: 6px;
+  margin: 16px 0;
+  padding: 8px 6px;
+  gap: 4px;
   justify-content: left;
   align-items: start;
   color: var(--text-color);
+  backdrop-filter: blur(20px);
+  border-radius: 4px;
+
 }
 
 .contact form input,
@@ -1006,6 +1039,7 @@ section {
 
 .contact form textarea {
   resize: none;
+  height: 8rem;
 }
 
 .contact .inputgroup:focus-within label {

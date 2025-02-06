@@ -4,7 +4,7 @@
       "id": 1,
       "nombre": "App de traducción de texto con imagenes",
       "descripcion": "Aplicación desarrollada con Flutter, Google Services y Python.",
-      "pathImagen": "imagenJobs/flutterAppImagen.jpg",
+      "pathImagen": "imagenJobs/flutterexample.jpg",
       "fechaInicio": "10/06/2024",
       "fechaFin": "20/10/2025"
     },
@@ -12,7 +12,7 @@
       "id": 2,
       "nombre": "App de traducción de texto con imagenes Npo2",
       "descripcion": "Aplicación desarrollada con Flutter, Google Services y Python.",
-      "pathImagen": "imagenJobs/flutterAppImagen.jpg",
+      "pathImagen": "imagenJobs/flutterexample.jpg",
       "fechaInicio": "10/06/2024",
       "fechaFin": "20/10/2025"
     }
