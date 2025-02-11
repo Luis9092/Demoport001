@@ -644,7 +644,7 @@ function hackerBinari() {
 function initMatrix(containerId, options = {}) {
     const {
         columnWidth = 46,
-        animationSpeed = 1000,
+        animationSpeed = 500,
         changeCharProbability = 0.1,
         minLength = 15,
         maxLength = 30,

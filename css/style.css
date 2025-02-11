@@ -12,7 +12,7 @@
 :root {
   --container-color: rgb(255, 255, 255);
   --text-color: #0b0b0b;
-  --light-color: #f1f1f1;
+  --light-color: #ebebeb;
   --primary-color: #20dd4c;
   --secondary-color: #0a80a8;
   --gray-color: #414141;
@@ -22,7 +22,7 @@
   --neon-box-shadow: 0 1.5px 0.6rem var(--primary-color);
   --border-container: 1px solid var(--primary-color);
   --h2-font: 3rem;
-  --text-shadow: 0px 0px 3px rgb(219, 219, 219);
+  --text-shadow: 1px 0px 2px rgb(164, 164, 164);
   --shadow-general: 0 -1px 4px var(var(--light-color));
 }
 
@@ -32,7 +32,7 @@
   --gray-color: #fffafa;
   --secon-bg-color: #000000e3;
   --boxshadow-color: #000000;
-  --text-shadow: 0 0px 3px rgb(0, 0, 0);
+  --text-shadow: 1px 0px 2px rgb(0, 0, 0);
   --input-borderColor: #5b5b5b;
   --light-color: #4f4f4f;
   --shadow-general: 0 -1px 4px var(--light-color);
@@ -135,6 +135,119 @@ header.sticky {
   color: var(--text-color);
   text-shadow: var(--text-shadow);
   display: none;
+}
+
+/* toggle */
+
+.toggle-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+
+.toggle-switch {
+  position: relative;
+  width: 70px;
+  height: 30px;
+  border-radius: 17px;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  box-shadow: inset 0 1px 2px var(--secon-bg-color),
+    0 1px 2px var(--secon-bg-color);
+  border: 1px solid var(--light-color);
+}
+
+.toggle-switch.active {
+  background: linear-gradient(
+    to right,
+    var(--container-color),
+    var(--container-color)
+  );
+}
+
+.toggle-handle {
+  position: absolute;
+  top: 2px;
+  left: 2px;
+  width: 24px;
+  height: 24px;
+  border-radius: 50%;
+  background: var(--text-color);
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.toggle-switch.active .toggle-handle {
+  transform: translateX(36px);
+}
+
+.toggle-icons {
+  position: absolute;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 0 10px;
+  box-sizing: border-box;
+  opacity: 0.7;
+}
+
+.toggle-icons span {
+  font-size: 16px;
+  line-height: 1;
+  transition: opacity 0.3s ease;
+}
+
+.toggle-icons span i {
+  text-shadow: var(--text-shadow);
+}
+
+.toggle-switch:hover {
+  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1), 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.toggle-switch:hover .toggle-handle {
+  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+}
+
+/* Efecto de pulso al hacer clic */
+.toggle-switch:active .toggle-handle {
+  transform: scale(0.95);
+}
+
+.status-text {
+  font-size: 12px;
+  font-weight: 500;
+  color: #666;
+  transition: color 0.3s ease;
+  margin-top: 8px;
+}
+
+.dark-mode .status-text {
+  color: #fff;
+}
+
+.btnchangeColor {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+.btnchangeColor #btnColor {
+  padding: 0;
+  margin: 0;
+}
+.btnchangeColor #btnColor i {
+  background-color: var(--primary-color);
+  border-radius: 50%;
+  padding: 6px;
+  box-shadow: inset 0 0px 2px var(--secon-bg-color),
+    0 0px 2px var(--secon-bg-color);
+  border: 1px solid var(--light-color);
 }
 
 section {
@@ -263,12 +376,10 @@ section {
   font-size: 1.2rem;
   border-radius: 50%;
   color: var(--primary-color);
-  font-weight: 400; 
+  font-weight: 400;
   border: 0.5px var(--primary-color) solid;
   box-shadow: 0 0px 6px var(--primary-color);
 }
-
-
 
 .btn-box {
   display: flex;
@@ -413,11 +524,6 @@ section {
 .liquid-shape:nth-child(2) {
   filter: blur(50px);
 }
-
-
-
-
-
 
 /* about section csss */
 
@@ -606,7 +712,7 @@ section {
 }
 
 .btncard {
-  width: 100% ;
+  width: 100%;
   display: flex;
   justify-content: center;
   margin-top: 1rem;
@@ -663,7 +769,7 @@ section {
   text-shadow: var(--neon-box-shadow);
 }
 
-.swiper-pagination .swiper-pagination-bullet{
+.swiper-pagination .swiper-pagination-bullet {
   color: var(--primary-color) !important;
   background-color: var(--primary-color) !important;
 }
@@ -866,7 +972,6 @@ section {
   border-radius: 30px;
   transform: skew(19deg, -9deg);
   border: 1px solid var(--text-color);
-
 }
 
 .text_container:hover {
@@ -968,12 +1073,10 @@ section {
   height: 100%;
 }
 
-.contact  #matrix{
+.contact #matrix {
   position: relative;
   width: 100%;
-
 }
-
 
 .matrix {
   font-family: monospace;
@@ -981,16 +1084,7 @@ section {
   width: 100%;
   line-height: 1.1em;
 }
-
-
-
-@keyframes fade {
-  0% { opacity: 0; }
-  30% { opacity: 1; }
-  70% { opacity: 1; }
-  100% { opacity: 0; }
-}
-
+ 
 .contact form {
   text-align: center;
   max-width: 50rem;
@@ -1005,15 +1099,14 @@ section {
 .contact .inputgroup {
   display: flex;
   flex-direction: column;
-  margin: 16px 0;
-  padding: 8px 6px;
+  margin: 1.4rem 0;
+  padding: 4px 6px;
   gap: 4px;
   justify-content: left;
   align-items: start;
   color: var(--text-color);
-  backdrop-filter: blur(20px);
+  backdrop-filter: blur(2px);
   border-radius: 4px;
-
 }
 
 .contact form input,
@@ -1170,101 +1263,6 @@ footer a:hover {
 .containerdialog .bodyTarget img {
   max-width: 100%;
   /* height: auto; */
-}
-
-/* toggle */
-
-.toggle-container {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-}
-
-.toggle-switch {
-  position: relative;
-  width: 70px;
-  height: 30px;
-  border-radius: 17px;
-  cursor: pointer;
-  transition: all 0.4s ease;
-  box-shadow: inset 0 1px 2px var(--secon-bg-color),
-    0 1px 2px var(--secon-bg-color);
-  border: 1px solid var(--light-color);
-}
-
-.toggle-switch.active {
-  background: linear-gradient(
-    to right,
-    var(--container-color),
-    var(--container-color)
-  );
-}
-
-.toggle-handle {
-  position: absolute;
-  top: 2px;
-  left: 2px;
-  width: 24px;
-  height: 24px;
-  border-radius: 50%;
-  background: var(--text-color);
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  box-shadow: 0 2px 4px rgba(0, 0, 0, 0.2);
-  display: flex;
-  align-items: center;
-  justify-content: center;
-}
-
-.toggle-switch.active .toggle-handle {
-  transform: translateX(36px);
-}
-
-.toggle-icons {
-  position: absolute;
-  width: 100%;
-  height: 100%;
-  display: flex;
-  justify-content: space-between;
-  align-items: center;
-  padding: 0 10px;
-  box-sizing: border-box;
-  opacity: 0.7;
-}
-
-.toggle-icons span {
-  font-size: 16px;
-  line-height: 1;
-  transition: opacity 0.3s ease;
-}
-
-.toggle-icons span i {
-  text-shadow: var(--text-shadow);
-}
-
-.toggle-switch:hover {
-  box-shadow: inset 0 2px 4px rgba(0, 0, 0, 0.1), 0 4px 8px rgba(0, 0, 0, 0.1);
-}
-
-.toggle-switch:hover .toggle-handle {
-  box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
-}
-
-/* Efecto de pulso al hacer clic */
-.toggle-switch:active .toggle-handle {
-  transform: scale(0.95);
-}
-
-.status-text {
-  font-size: 12px;
-  font-weight: 500;
-  color: #666;
-  transition: color 0.3s ease;
-  margin-top: 8px;
-}
-
-.dark-mode .status-text {
-  color: #fff;
 }
 
 #systemsCanvas {
