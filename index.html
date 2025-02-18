@@ -31,6 +31,27 @@
     <link rel="stylesheet" href="css/style.css" />
   </head>
   <body>
+    <div class="loading">
+      <div class="loading-container">
+        <div class="terminal">
+          <div class="terminal-header">
+            <div class="buttons">
+              <span class="button close"></span>
+              <span class="button minimize"></span>
+              <span class="button maximize"></span>
+            </div>
+            <div class="titleonload">root@hacker:~</div>
+          </div>
+          <div class="terminal-body">
+            <p id="loading-text">Cargando sistema...</p>
+            <div class="progress-bar">
+              <div class="progress"></div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+
     <header>
       <div class="logo">
         <span style="color: var(--primary-color)">LuisDoc</span>s
@@ -80,8 +101,8 @@
         <li>
           <div class="btnchangeColor">
             <a id="btnColor" href="#" class="btn"
-              ><i class="bx bxs-palette bx-spin"></i></a
-            >
+              ><i class="bx bxs-palette bx-spin"></i
+            ></a>
           </div>
         </li>
       </ul>

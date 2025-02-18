@@ -56,6 +56,116 @@ body {
   font-family: "Poppins", sans-serif;
   background-color: var(--container-color);
   color: var(--text-color);
+  /* width: 100%;
+  height: 100vh; */
+  /* margin: 0;
+  padding: 0;
+  background-color: #000;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  height: 100vh; */
+}
+
+/* CREANDO ONLOAD ANIMACION */
+
+.loading {
+  position: absolute;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  width: 100%;
+  height: 100%;
+  
+}
+
+.loading-container {
+  width: 90%;
+  background-color: #111111;
+  border: 2px solid #00ff00;
+  border-radius: 5px;
+  overflow: hidden;
+  z-index: 999999;
+}
+
+.terminal {
+  padding: 10px;
+}
+
+.terminal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  background-color: #222;
+  padding: 5px 10px;
+  border-bottom: 1px solid #00ff00;
+}
+
+.buttons {
+  display: flex;
+  gap: 5px;
+}
+
+.button {
+  width: 12px;
+  height: 12px;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.button.close {
+  background-color: #ff5f56;
+}
+.button.minimize {
+  background-color: #ffbd2e;
+}
+.button.maximize {
+  background-color: #27c93f;
+}
+
+.titleonload{
+  font-size: 14px;
+  color: #00ff00;
+}
+
+.terminal-body {
+  padding: 10px;
+}
+
+#loading-text {
+  margin: 0;
+  font-size: 16px;
+  color: #00ff00;
+}
+
+.progress-bar {
+  width: 100%;
+  height: 10px;
+  background-color: #333;
+  border-radius: 5px;
+  margin-top: 10px;
+  overflow: hidden;
+}
+
+.progress {
+  width: 0;
+  height: 100%;
+  background-color: #00ff00;
+  border-radius: 5px;
+  animation: load 3s linear forwards;
+}
+
+.hidden {
+  display: none !important;
+}
+
+@keyframes load {
+  0% {
+    width: 0;
+  }
+  100% {
+    width: 100%;
+  }
 }
 
 header {
@@ -908,8 +1018,12 @@ section {
 
 /* PORTAFOLIO SECTION CSSS */
 
+.portafolio .container {
+  padding: 6px;
+}
+
 .fillter-buttons {
-  margin: 2rem;
+  margin-bottom: 1rem;
   text-align: center;
 }
 
@@ -937,12 +1051,13 @@ section {
 
 .port-box {
   position: relative;
-  border-radius: 12px;
+  border-radius: 18px;
   overflow: hidden;
   display: flex;
   grid-template-rows: 1fr auto;
   align-items: center;
-  border: 1px solid var(--text-color);
+  box-shadow: 0 0 1px var(--shadow-general);
+  /* border: 1px solid ar(--text-color); */
 }
 
 .port-box:hover {
@@ -971,7 +1086,7 @@ section {
   );
   border-radius: 30px;
   transform: skew(19deg, -9deg);
-  border: 1px solid var(--text-color);
+  /* border: 1px solid var(--text-color); */
 }
 
 .text_container:hover {
@@ -988,7 +1103,7 @@ section {
   border-radius: 50%;
   background-color: var(--container-color);
   position: absolute;
-  left: 24px;
+  left: 12px;
   bottom: 20%;
   overflow: hidden;
   border: 0.5px solid var(--primary-color);
@@ -1007,8 +1122,9 @@ section {
   font-weight: 400;
   text-align: justify;
   padding: 6px;
-  left: 70px;
-  bottom: 14.4%;
+  left: 42px;
+  bottom: 15.6%;
+  /* background-color: rebeccapurple !important; */
 }
 
 .card_btn {
@@ -1062,7 +1178,7 @@ section {
   position: absolute;
   font-weight: 300;
   color: var(--text-color);
-  left: 30px;
+  left: 12px;
   bottom: 6%;
 }
 
@@ -1084,7 +1200,7 @@ section {
   width: 100%;
   line-height: 1.1em;
 }
- 
+
 .contact form {
   text-align: center;
   max-width: 50rem;

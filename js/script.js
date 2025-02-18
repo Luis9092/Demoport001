@@ -152,7 +152,6 @@ function obtenerHoraActual() {
 function SaludoUsuario() {
     let hora = obtenerHoraActual();
     let cadena = "";
-    console.log(hora);
     if (hora < 12) {
         cadena = "Buenos Dias!!";
     }
@@ -332,11 +331,7 @@ const body = document.body;
 
 const modeToggle = body.querySelector("#toggle-switch");
 
-let getMode = localStorage.getItem("mode");
-if (getMode && getMode === "dark") {
-    console.log(getMode);
-    body.setAttribute("data-theme", "dark");
-}
+
 
 
 modeToggle.addEventListener("click", (e) => {
@@ -344,10 +339,10 @@ modeToggle.addEventListener("click", (e) => {
 
     if (body.getAttribute("data-theme") === "dark") {
         body.removeAttribute("data-theme");
-        localStorage.setItem("mode", "dark");
+        localStorage.setItem("mode", "light");
     } else {
         body.setAttribute("data-theme", "dark");
-        localStorage.setItem("mode", "light");
+        localStorage.setItem("mode", "dark");
     }
 });
 
@@ -409,6 +404,35 @@ const audio = new Audio('js/reproducir.mpeg');
 // INICIOOO
 window.onload = function () {
     // inicioAlerta(); 
+
+    let getMode = localStorage.getItem("mode");
+    if (getMode && getMode === "dark") {
+        console.log(getMode);
+        body.setAttribute("data-theme", "dark");
+    }
+
+    const loadingContainer = document.querySelector('.loading-container');
+    const loadingText = document.getElementById('loading-text');
+    const messages = [
+        "Iniciando sistema...",
+        "Conectando a la red...",
+        "Analizando datos...",
+        "Acceso concedido..."
+    ];
+
+    let index = 0;
+    const textInterval = setInterval(() => {
+        loadingText.textContent = messages[index];
+        index = (index + 1) % messages.length;
+    }, 800);
+
+    // Ocultar después de 3 segundos
+    setTimeout(() => {
+        loadingContainer.classList.add('hidden');
+        clearInterval(textInterval); // Detener el cambio de texto
+    }, 4600); // 3000 ms = 3 segundos
+
+
     SaludoUsuario();
     pintadoCursos();
     swiperCargando();
@@ -425,6 +449,9 @@ window.onload = function () {
     //     }
     // }, { once: true });  
 };
+
+
+
 
 
 
