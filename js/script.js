@@ -405,13 +405,14 @@ const audio = new Audio('js/reproducir.mpeg');
 window.onload = function () {
     // inicioAlerta(); 
 
+    horaTerminal();
     let getMode = localStorage.getItem("mode");
     if (getMode && getMode === "dark") {
         console.log(getMode);
         body.setAttribute("data-theme", "dark");
     }
 
-    const loadingContainer = document.querySelector('.loading-container');
+    const loadingContainer = document.querySelector('.loading');
     const loadingText = document.getElementById('loading-text');
     const messages = [
         "Iniciando sistema...",
@@ -760,3 +761,19 @@ function animateColumn(column, delay, options) {
     }, delay * 1000);
 }
 
+
+
+// HORA
+
+function obtenerFechaHoraActualConDia() {
+    const fechaHoraActual = new Date();
+    // Opciones para formatear la fecha
+    const opciones = { weekday: 'long', year: 'numeric', month: 'long', day: 'numeric', hour: '2-digit', minute: '2-digit', second: '2-digit', hour12: false };
+    return fechaHoraActual.toLocaleString('es-ES', opciones); // Devuelve la fecha y hora formateada en español
+}
+
+// Ejemplo de uso
+function horaTerminal() {
+    const horaactual = document.querySelector("#horaactual");
+    horaactual.textContent = obtenerFechaHoraActualConDia();
+}
